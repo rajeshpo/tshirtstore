@@ -92,7 +92,7 @@ const Card = ({
           onClick={() => {
             removeItemFromCart(product._id);
             setReload(!reload);
-            
+            window.location.reload()
            
       
           
