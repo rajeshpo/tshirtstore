@@ -88,21 +88,19 @@ const Card = ({
   const showRemoveFromCart = removeFromCart => {
     return (
       removeFromCart && (
-        <Link to="/cart">
-           <button
-          onClick={() => {
-            removeItemFromCart(product._id);
-            setReload(!reload);
-            window.location.reload()
-          
-      
-          
-          }}
-          className="btn btn-block removeFromCart btn-outline-danger mt-2 mb-2"
-        >
-          Remove 
-        </button>
-        </Link>
+        <button
+        onClick={() => {
+          removeItemFromCart(product._id);
+          setReload(!reload);
+          window.location.reload()
+        
+    
+        
+        }}
+        className="btn btn-block removeFromCart btn-outline-danger mt-2 mb-2"
+      >
+        Remove 
+      </button>
       )
     );
   };
