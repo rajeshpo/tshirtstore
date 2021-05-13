@@ -1,8 +1,9 @@
 import React, { useEffect, useState} from "react";
 import ImageHelper from "./helper/ImageHelper";
-import { Link} from "react-router-dom";
+import { Link,Redirect} from "react-router-dom";
 import { addItemToCart, removeItemFromCart } from "./helper/cartHelper";
 import { isAutheticated } from "../auth/helper";
+
  
 
 import { toast } from 'react-toastify';
@@ -26,6 +27,7 @@ const Card = ({
   const [redirect, setRedirect] = useState(false);
    
   const [count, setCount] = useState(product.count);
+  const [reloadCart,setReloadCart]=useState(false)
  
    
   
@@ -86,13 +88,17 @@ const Card = ({
     return redirect&&<Link to="/cart" className="btn btn-block btn-outline-info mt-2 mb-2">Go To Cart</Link>  
   }
   const showRemoveFromCart = removeFromCart => {
+    setReloadCart(true)
     return (
+      
       removeFromCart && (
         <button
           onClick={() => {
             removeItemFromCart(product._id);
             setReload(!reload);
-           window.location.reload()
+            if (reloadCart) {
+       return <Redirect to='https://adoring-darwin-d0e917.netlify.app/cart'/>;
+     }
            
       
           

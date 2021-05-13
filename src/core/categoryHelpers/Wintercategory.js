@@ -38,17 +38,24 @@ export default function Wintercategory() {
     <div className="row text-center">
      <div className="row">
        {products.map((product, index) => {
+        console.log(product);
         let w = window.innerWidth;
-          if(product.category.name==="winter"){
-            return (
-               w<768?( <div key={index} className="col-6 mb-4">
-             <Card product={product}   />
+        if(product.category.name){
+    console.log(product.category.name)
+   if(product.category.name==="winter"){
+     return (
+      w<768?( <div key={index} className="col-6 mb-4">
+             <Card product={product} />
            </div>):( <div key={index} className="col-3 mb-4">
-             <Card product={product}  />
+             <Card product={product} />
            </div>)
            
-         );
-          } 
+  );
+   } 
+  }
+  else{
+    return <p>Loading</p>
+  }
          
        })}
      </div>

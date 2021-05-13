@@ -38,7 +38,9 @@ export default function Wintercategory() {
 
 {products.map((product, index) => {
   let w = window.innerWidth;
-
+console.log(product);
+  if(product.category.name){
+    console.log(product.category.name)
    if(product.category.name==="summer"){
      return (
       w<768?( <div key={index} className="col-6 mb-4">
@@ -49,6 +51,11 @@ export default function Wintercategory() {
            
   );
    } 
+  }
+  else{
+    return <p>Loading</p>
+  }
+ 
   
 })}
 </div>):"Loading......"}
