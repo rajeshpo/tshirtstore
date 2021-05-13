@@ -1,3 +1,5 @@
+
+import {Redirect} from 'react-dom'
 export const addItemToCart = (item, next) => {
   let cart = [];
   if (typeof window !== undefined) {
@@ -28,7 +30,7 @@ export const loadCart = () => {
   }
 };
 
-export const removeItemFromCart = productId => {
+export const removeItemFromCart =(productId) => {
   let cart = [];
   if (typeof window !== undefined) {
     if (localStorage.getItem("cart")) {
@@ -40,8 +42,9 @@ export const removeItemFromCart = productId => {
       }
     });
     localStorage.setItem("cart", JSON.stringify(cart));
-
+    
   }
+   
   return cart;
 };
 
