@@ -88,12 +88,12 @@ const Card = ({
   const showRemoveFromCart = removeFromCart => {
     return (
       removeFromCart && (
-        <button
+        <Link to="/cart">
+           <button
           onClick={() => {
             removeItemFromCart(product._id);
             setReload(!reload);
-            window.location.reload()
-           
+          
       
           
           }}
@@ -101,6 +101,7 @@ const Card = ({
         >
           Remove 
         </button>
+        </Link>
       )
     );
   };
